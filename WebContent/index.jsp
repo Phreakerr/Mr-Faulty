@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="stylesheet.css" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Rationale|Roboto|Roboto+Condensed' rel='stylesheet' type='text/css'>
-<title>Insert title here</title>
+<link href='http://fonts.googleapis.com/css?family=Rationale|Roboto|Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
+<title>Mr Faulty</title>
 </head>
 <body>
 	<div class = "background">
@@ -16,6 +16,7 @@
 			<input class= "rounded" placeholder="Password">
 			<input class= "rounded" placeholder="Username">
 		</div>
+		
  		<div class = "homePageStripe">
  			<div style = "margin-left:auto;margin-right:auto;width:60%;min-width:900px">
 	 			<div style = "float:left; width:600px">
@@ -24,6 +25,7 @@
 				</div>		
 	
 				<img class = "homePageLogo" src = "faulty logo.png">
+
 			</div>
 		</div>
 	</div>
