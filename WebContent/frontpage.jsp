@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="stylesheet.css" type="text/css">
+<link rel="stylesheet" href="../stylesheet.css" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Rationale|Roboto|Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
 <title>Mr Faulty</title>
 </head>
@@ -12,9 +12,11 @@
 	<div class = "background">
 		<div class = "topBar">
 			<p class = "textLogo">Mr Faulty</p>
-			<button class = "button">Sign in</button>
-			<input class= "rounded" placeholder="Password">
-			<input class= "rounded" placeholder="Username">
+			<form action="Login" method="post">
+				<button type="submit" class = "button">Sign in</button>
+				<input type="password" name = "password" class= "rounded" placeholder="Password">
+				<input type="text" name="username" class= "rounded" placeholder="Username">
+			</form>
 		</div>
 		
  		<div class = "homePageStripe">
@@ -24,7 +26,7 @@
 					<h2 class = "homePageSubtitle">Bug Tracking and Reporting System</h2>
 				</div>		
 	
-				<img class = "homePageLogo" src = "faulty logo.png">
+				<img class = "homePageLogo" src = "../faulty logo.png">
 
 			</div>
 		</div>

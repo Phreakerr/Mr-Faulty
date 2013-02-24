@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="stylesheet.css" type="text/css">
+<link rel="stylesheet" href="WebContent/stylesheet.css" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Rationale|Roboto|Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
 <title>Mr Faulty - Current Bugs</title>
 </head>
