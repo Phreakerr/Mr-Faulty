@@ -23,6 +23,10 @@
 <title>Mr Faulty - Current Bugs</title>
 </head>
 <body>
+	<%
+		String[] args = utils.SplitRequestPath(request);
+	
+	%>
 	<div class = "topBar">
 		<p class = "textLogo">Mr Faulty</p>
 		<form action="/Mr_Faulty/Faulty/Logout/">
@@ -50,58 +54,96 @@
 		<hr />
 	</div>
 	
+	<%
+	bugreportbean bug = PostFetcher.getBugDetails(Integer.parseInt(args[3]));
+	
+	if(bug != null)
+	{
+	%>
+	
 	<div class = "mainPage">
 		<h1 class = "mainPageHeader">
-		Current Bugs:
+		Bug Report #<%=args[3] %>:
 		</h1>
 		<br />
 		<hr />
-		<div class = "BugTable">
-			                <table >
-                    <tr>
-                        <td>
-                            Issue ID
-                        </td>
-                        <td >
-                            Summary
-                        </td>
-                        <td>
-							Status
-                        </td>
-                        <td>
-							Rationale
-                        </td>
-                    </tr>
-                    
-                    <%
-                    	LinkedList<bugreportbean> posts = PostFetcher.getAllPostSummaries();
-                    	bugreportbean post;
-                    	
-                    	for (int i = 0; i < posts.size(); i++)
-                    	{
-                    		post = posts.get(i);
-                    	%>
-                            <tr>
-                            <td >
-                            <a href="/Mr_Faulty/Faulty/Bug/<%= post.getIssueID() %>/">
-                                #<%= post.getIssueID() %>
-                            </a>
-                            </td>
-                            <td>
-                                <%= post.getSummary() %>
-                            </td>
-                            <td>
-                                <%= post.getStatus() %>
-                            </td>
-                            <td>
-                                <%= post.getRationale() %>
-                          	</td>
-    					</tr>
-    					
-                    	<% }
-                    %>
-                </table>
-		</div>
+		
+		<table>
+		
+		<tr>
+		<td>
+		<p class="blackBodyText"><strong>Bug ID:</strong></p>
+		</td>
+		<td>
+		<p class="blackBodyText"><%= bug.getIssueID() %></p>
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<p class="blackBodyText"><strong>Summary:</strong></p>
+		</td>
+		<td>
+		<p class="blackBodyText"><%= bug.getSummary() %></p>
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<p class="blackBodyText"><strong>Status:</strong></p>
+		</td>
+		<td>
+		<p class="blackBodyText"><%= bug.getStatus() %></p>
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<p class="blackBodyText"><strong>Rationale:</strong></p>
+		</td>
+		<td>
+		<p class="blackBodyText"><%= bug.getRationale() %></p>
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<p class="blackBodyText"><strong>Details of Fault:</strong></p>
+		</td>
+		<td>
+		<p class="blackBodyText"><%= bug.getFaultDetails() %></p>
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<p class="blackBodyText"><strong>Expected Result:</strong></p>
+		</td>
+		<td>
+		<p class="blackBodyText"><%= bug.getExpectedResult() %></p>
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<p class="blackBodyText"><strong>Actual Result:</strong></p>
+		</td>
+		<td>
+		<p class="blackBodyText"><%= bug.getActualResult() %></p>
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<p class="blackBodyText"><strong>Submitter:</strong></p>
+		</td>
+		<td>
+		<p class="blackBodyText"><%= bug.getSubmitterUsername() %></p>
+		</td>
+		</tr>
+		
+		</table>
 	</div>
+	<%} %>
 </body>
 </html>

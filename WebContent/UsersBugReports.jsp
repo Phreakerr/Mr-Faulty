@@ -74,7 +74,7 @@
                     </tr>
                     
                     <%
-                    	LinkedList<bugreportbean> posts = PostFetcher.getAllPostSummaries();
+                    	LinkedList<bugreportbean> posts = PostFetcher.getPostsByUser((String)session.getAttribute("username"));
                     	bugreportbean post;
                     	
                     	for (int i = 0; i < posts.size(); i++)

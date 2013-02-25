@@ -20,7 +20,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="/Mr_Faulty/stylesheet.css" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Rationale|Roboto|Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
-<title>Mr Faulty - Current Bugs</title>
+<title>Mr Faulty - Submit Bug Report</title>
 </head>
 <body>
 	<div class = "topBar">
@@ -52,56 +52,56 @@
 	
 	<div class = "mainPage">
 		<h1 class = "mainPageHeader">
-		Current Bugs:
+		Submit Bug Report:
 		</h1>
 		<br />
 		<hr />
-		<div class = "BugTable">
-			                <table >
-                    <tr>
-                        <td>
-                            Issue ID
-                        </td>
-                        <td >
-                            Summary
-                        </td>
-                        <td>
-							Status
-                        </td>
-                        <td>
-							Rationale
-                        </td>
-                    </tr>
-                    
-                    <%
-                    	LinkedList<bugreportbean> posts = PostFetcher.getAllPostSummaries();
-                    	bugreportbean post;
-                    	
-                    	for (int i = 0; i < posts.size(); i++)
-                    	{
-                    		post = posts.get(i);
-                    	%>
-                            <tr>
-                            <td >
-                            <a href="/Mr_Faulty/Faulty/Bug/<%= post.getIssueID() %>/">
-                                #<%= post.getIssueID() %>
-                            </a>
-                            </td>
-                            <td>
-                                <%= post.getSummary() %>
-                            </td>
-                            <td>
-                                <%= post.getStatus() %>
-                            </td>
-                            <td>
-                                <%= post.getRationale() %>
-                          	</td>
-    					</tr>
-    					
-                    	<% }
-                    %>
-                </table>
-		</div>
+
+		<form action="/Mr_Faulty/Faulty/SubmittingReport/" method="post">
+		<table class = "regForm">
+		<tr>
+		<td>
+		<p class="blackBodyText">Summary of fault: </p>
+		</td>
+		<td>
+		<input type = "text" name = "summary" class ="rounded">
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<p class="blackBodyText">Details of fault: </p>
+		</td>
+		<td>
+		<input type = "text" name = "details" class ="rounded">
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<p class="blackBodyText">Expected result: </p>
+		</td>
+		<td>
+		<input type = "text" name = "expectedResult" class ="rounded">
+		</td>
+		<td>
+		</tr>
+				
+		<tr>
+		<td>
+		<p class="blackBodyText">Actual result: </p>
+		</td>
+		<td>
+		<input type = "text" name = "actualResult" class ="rounded">
+		</td>
+		<td>
+		<button type = "submit" class = "button" style='float:left'> Submit </button>
+		</td>
+		</tr>
+		
+		</table>
+		
+		</form>
 	</div>
 </body>
 </html>

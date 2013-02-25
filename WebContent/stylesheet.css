@@ -142,7 +142,7 @@ p.blackBodyText
 	color: black;
 	font-family: 'Roboto', sans-serif;
 	font-size: 14pt;
-	margin:25px 20px;
+	margin:10px 20px;
 	z-index: 1;
 	float:left;
 }

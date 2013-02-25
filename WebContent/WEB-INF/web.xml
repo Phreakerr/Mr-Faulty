@@ -44,4 +44,44 @@
     <servlet-name>SubmitRegistration</servlet-name>
     <url-pattern>/Faulty/SubmitRegistration/</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>SubmitReport</servlet-name>
+    <jsp-file>/submitReport.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SubmitReport</servlet-name>
+    <url-pattern>/Faulty/SubmitReport/</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SubmitBugReport</servlet-name>
+    <servlet-class>com.faulty.controller.SubmitBugReport</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SubmitBugReport</servlet-name>
+    <url-pattern>/Faulty/SubmittingReport/</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>com.faulty.controller.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/Faulty/Logout/</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UsersBugReports</servlet-name>
+    <jsp-file>/UsersBugReports.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UsersBugReports</servlet-name>
+    <url-pattern>/Faulty/MyBugs/</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>BugDetail</servlet-name>
+    <jsp-file>/InduvidualBug.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BugDetail</servlet-name>
+    <url-pattern>/Faulty/Bug/*</url-pattern>
+  </servlet-mapping>
 </web-app>
