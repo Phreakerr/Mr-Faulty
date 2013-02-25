@@ -11,10 +11,10 @@ public class ConnectionManager {
 	{
 		try
 		{
-			String url = "jdbc:mysql://localhost/";
-			String dbName = "mrfaulty";
-			String uname = "root";
-			String pwd = "";
+			String url = "jdbc:mysql://arlia.computing.dundee.ac.uk/";
+			String dbName = "frasersharp";
+			String uname = "FraserSharp";
+			String pwd = "ac31004";
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			try
