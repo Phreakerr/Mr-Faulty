@@ -12,10 +12,11 @@
 	<div class = "background">
 		<div class = "topBar">
 			<p class = "textLogo">Mr Faulty</p>
-			<form action="Login" method="post">
+			<a href="Registration/"><p class ="loggedInText">Register</p></a>
+			<form action="/Mr_Faulty/Faulty/Login/" method="post">
 				<button type="submit" class = "button">Sign in</button>
-				<input type="password" name = "password" class= "rounded" placeholder="Password">
-				<input type="text" name="username" class= "rounded" placeholder="Username">
+				<input type="password" name = "password" class= "roundedRight" placeholder="Password">
+				<input type="text" name="username" class= "roundedRight" placeholder="Username">
 			</form>
 		</div>
 		

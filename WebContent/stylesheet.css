@@ -4,6 +4,7 @@ html, body
 {
 	height:100%;
 	margin:0;
+	z-index: -2;
 }
 
 div.background
@@ -36,6 +37,7 @@ div.sidebar
 	box-shadow: 0 0 20px #000;
 	margin-top:50px;
 	margin-right:0px;
+	z-index: 0;
 }
 
 div.topBar
@@ -55,20 +57,31 @@ div.topBar
 div.mainPage
 {
 	position:absolute;
-	top:0;
-	left:0;
+	top:50px;
+	left:150px;
 	width:100%;
 	min-height:100%;
-	padding-top:50px;
-	padding-left:150px;
+/*	padding-top:50px;
+	padding-left:150px;*/
+	z-index: 0;
 }
 
-input.rounded
+input.roundedRight
 {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	float:right;
+	margin:10px 5px;
+	height:20px;
+}
+
+input.roundedLeft
+{
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	float:left;
 	margin:10px 5px;
 	height:20px;
 }
@@ -100,6 +113,19 @@ p.sidebarText
 	text-align: center;
 	margin:0px;
 	font-weight: 300;
+	z-index: 2;
+	text-decoration: none;
+}
+
+a.sidebarText
+{
+	color: white;
+	font-family: 'Roboto Condensed', sans-serif;
+	text-align: center;
+	margin:0px;
+	font-weight: 300;
+	z-index: 2;
+	text-decoration: none;
 }
 
 p.loggedInText
@@ -109,6 +135,21 @@ p.loggedInText
 	font-family: 'Roboto', sans-serif;
 	font-size: 12pt;
 	margin:12px 15px;
+}
+
+p.blackBodyText
+{
+	color: black;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14pt;
+	margin:25px 20px;
+	z-index: 1;
+	float:left;
+}
+
+table.refForm
+{
+	z-index: 2
 }
 
 h1.homePageTitle

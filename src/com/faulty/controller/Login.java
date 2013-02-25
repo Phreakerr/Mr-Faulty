@@ -1,37 +1,29 @@
-package com.faulty.login;
+package com.faulty.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.tomcat.jdbc.pool.DataSource;
-
-import sun.net.ConnectionResetException;
+import javax.servlet.http.HttpSession;
 
 import com.faulty.utils.*;
-import com.mysql.jdbc.Statement;
 
 /**
  * Servlet implementation class LoginServlet
  */
 
-public class LoginServlet extends HttpServlet {
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public Login() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -50,7 +42,6 @@ public class LoginServlet extends HttpServlet {
 		String userName = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		PrintWriter writer = response.getWriter();
 
 		//**********************
 		//CONNECTING TO DATABASE
@@ -61,7 +52,7 @@ public class LoginServlet extends HttpServlet {
 		
 		if (conn == null)
 		{
-			writer.println("Connection Failure");
+			System.out.println("Connection Failure");
 		}
 		else
 		{
@@ -78,18 +69,22 @@ public class LoginServlet extends HttpServlet {
 				
 				while(rs.next())
 				{
-					if (rs.getString("password") == Encryptor.Encrypt(password).trim())
+					if (rs.getString("password").equalsIgnoreCase(Encryptor.Encrypt(password)))
 					{
-						writer.println("YUP");
+						HttpSession session = request.getSession();
+						
+						session.setAttribute("username", rs.getString("username"));
+						session.setAttribute("isadmin", rs.getBoolean("isadmin"));
+						
+						response.sendRedirect("/Mr_Faulty/Faulty/CurrentBugs/");
 					}
 					else
 					{
-						writer.println("NOPE");
-						writer.println("Expected = " + rs.getString("password"));
-						writer.println("Actual = " + Encryptor.Encrypt(password));
+						response.sendRedirect("/Mr_Faulty/Faulty/");
 					}
 				}
 				
+			conn.close();	
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
