@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<% try
+{if (!session.getAttribute("username").toString().equals(""))
+{
+	String redirectURL = "/Mr_Faulty/Faulty/CurrentBugs/";
+    response.sendRedirect(redirectURL);
+}
+} catch (Exception e) {
+
+}
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -11,7 +21,9 @@
 <body>
 	<div class = "background">
 		<div class = "topBar">
-			<p class = "textLogo">Mr Faulty</p>
+		<a href="/Mr_Faulty/Faulty/">
+		<p class = "textLogo">Mr Faulty</p>
+		</a>
 			<a href="Registration/"><p class ="loggedInText">Register</p></a>
 			<form action="/Mr_Faulty/Faulty/Login/" method="post">
 				<button type="submit" class = "button">Sign in</button>

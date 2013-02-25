@@ -37,6 +37,16 @@ public class SubmitRegistration extends HttpServlet {
 		String userName = request.getParameter("username");
 		String password1 = request.getParameter("password1");
 		String password2 = request.getParameter("password2");
+		String makeadmin = request.getParameter("makeadmin");
+		int admin = 0;
+		try{
+		if(makeadmin.equals("on"))
+			admin=1;
+		else
+			admin=0;
+		} catch (Exception e) {
+			
+		}
 
 		System.out.println("Got post data.  Starting encryption");
 		String encryptedpass1 = Encryptor.Encrypt(password1);
@@ -79,7 +89,7 @@ public class SubmitRegistration extends HttpServlet {
 							submitStmt = conn.createStatement();
 
 							System.out.println("Inserting..");
-							submitStmt.executeUpdate("INSERT INTO users VALUES ('" + userName + "','" + encryptedpass1 + "',false)" );
+							submitStmt.executeUpdate("INSERT INTO users VALUES ('" + userName + "','" + encryptedpass1 + "','" + String.valueOf(admin) + "')");
 
 							System.out.println("Inserted! ..hopefully");
 							conn.close();

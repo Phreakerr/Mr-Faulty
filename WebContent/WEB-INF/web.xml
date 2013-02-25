@@ -84,4 +84,12 @@
     <servlet-name>BugDetail</servlet-name>
     <url-pattern>/Faulty/Bug/*</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateReport</servlet-name>
+    <servlet-class>com.faulty.controller.UpdateReport</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateReport</servlet-name>
+    <url-pattern>/Faulty/updateReport/*</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -28,7 +28,9 @@
 	
 	%>
 	<div class = "topBar">
+		<a href="/Mr_Faulty/Faulty/">
 		<p class = "textLogo">Mr Faulty</p>
+		</a>
 		<form action="/Mr_Faulty/Faulty/Logout/">
 		<input type="submit" class = "button" value="Sign out">
 		</form>
@@ -54,19 +56,29 @@
 		<hr />
 	</div>
 	
-	<%
-	bugreportbean bug = PostFetcher.getBugDetails(Integer.parseInt(args[3]));
-	
-	if(bug != null)
-	{
-	%>
-	
+		
 	<div class = "mainPage">
 		<h1 class = "mainPageHeader">
 		Bug Report #<%=args[3] %>:
 		</h1>
 		<br />
 		<hr />
+	
+	<%
+	bugreportbean bug = PostFetcher.getBugDetails(Integer.parseInt(args[3]));
+	
+	if(bug != null && bug.getIssueID() == Integer.parseInt(args[3]))
+	{
+		System.out.println("Valid bug ID");
+	%>
+		<%
+		if (Boolean.parseBoolean(session.getAttribute("isadmin").toString()))
+		{
+		%>
+		
+		<form action="/Mr_Faulty/Faulty/updateReport/<%=  bug.getIssueID() %>/" method="post">
+		
+		<%} %>
 		
 		<table>
 		
@@ -88,6 +100,37 @@
 		</td>
 		</tr>
 		
+		<%
+		if (Boolean.parseBoolean(session.getAttribute("isadmin").toString()))
+		{
+		%>
+		
+		<tr>
+		<td>
+		<p class="blackBodyText"><strong>Status:</strong></p>
+		</td>
+		<td>
+		<input style="margin-left:15px" type = "text" name = "status" class ="rounded" value="<%= bug.getStatus() %>">
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<p class="blackBodyText"><strong>Rationale:</strong></p>
+		</td>
+		<td>
+		<input style="margin-left:15px" type = "text" name = "rationale" class ="rounded" value="<%= bug.getRationale() %>">
+		</td>
+		<td>
+		<input type="submit" class="button" value="Update">
+		</tr>
+		
+		<%
+		}
+		else
+		{
+		%>
+		
 		<tr>
 		<td>
 		<p class="blackBodyText"><strong>Status:</strong></p>
@@ -105,6 +148,8 @@
 		<p class="blackBodyText"><%= bug.getRationale() %></p>
 		</td>
 		</tr>
+		
+		<%} %>
 		
 		<tr>
 		<td>
@@ -143,7 +188,19 @@
 		</tr>
 		
 		</table>
+				<%
+		if (Boolean.parseBoolean(session.getAttribute("isadmin").toString()))
+		{
+		%>
+		
+		</form>
+		
+		<%} %>
+		
 	</div>
-	<%} %>
+	<%} else {%>
+	
+		<p class="blackBodyText"><strong>This bug doesn't exist!</strong></p>
+		<%} %>
 </body>
 </html>

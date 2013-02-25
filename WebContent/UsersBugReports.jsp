@@ -24,7 +24,9 @@
 </head>
 <body>
 	<div class = "topBar">
+		<a href="/Mr_Faulty/Faulty/">
 		<p class = "textLogo">Mr Faulty</p>
+		</a>
 		<form action="/Mr_Faulty/Faulty/Logout/">
 		<input type="submit" class = "button" value="Sign out">
 		</form>

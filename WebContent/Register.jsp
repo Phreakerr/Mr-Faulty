@@ -10,7 +10,9 @@
 </head>
 <body>
 	<div class = "topBar">
+		<a href="/Mr_Faulty/Faulty/">
 		<p class = "textLogo">Mr Faulty</p>
+		</a>
 	</div>
 
 	<div class = "sidebar">
@@ -51,6 +53,16 @@
 		</td>
 		<td>
 		<input type = "password" name = "password2" class ="rounded">
+		</td>
+		</tr>
+		
+				
+		<tr>
+		<td>
+		<p class="blackBodyText">Make me an admin!</p>
+		</td>
+		<td>
+		<input type = "checkbox" name = "makeadmin" class ="rounded">
 		</td>
 		<td>
 		<button type = "submit" class = "button" style='float:left'> Submit </button>
