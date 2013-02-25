@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="../stylesheet.css" type="text/css">
+<link rel="stylesheet" href="/Mr_Faulty/stylesheet.css" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Rationale|Roboto|Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
 <title>Mr Faulty</title>
 </head>
@@ -39,7 +39,7 @@
 					<h2 class = "homePageSubtitle">Bug Tracking and Reporting System</h2>
 				</div>		
 	
-				<img class = "homePageLogo" src = "../faulty logo.png">
+				<img class = "homePageLogo" src = "/Mr_Faulty/faulty logo.png">
 
 			</div>
 		</div>
